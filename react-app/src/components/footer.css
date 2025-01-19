@@ -1,0 +1,29 @@
+footer{
+    background-color: pink; 
+    color: black; 
+    padding: 10px 20px; 
+    text-align: center; 
+  }
+footer.dark {
+    background-color: white;
+    color: black;
+    padding: 10px 0;;
+    text-align: center;
+}
+  .footer-content {
+    width: 80%;
+    margin: 0 auto; 
+    text-align: center;
+  }
+  
+  .footer p {
+    margin: 10px 0;
+    font-size: 16px;
+  }
+  
+  
+  @media (max-width: 768px) {
+    .footer-content {
+      width: 90%; 
+    }
+  }
