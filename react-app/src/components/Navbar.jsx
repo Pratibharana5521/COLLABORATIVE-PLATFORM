@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./navbar.css"
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; 
 import { useDarkMode } from "../context/DarkModeContext";
 import SearchIcon from '@mui/icons-material/Search';
 import PersonIcon from '@mui/icons-material/Person';
@@ -18,11 +19,17 @@ export default function Navbar() {
   // const [darkMode, setDarkMode] = useState(false);
   const { darkMode, toggleDarkMode } = useDarkMode();
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const navigate = useNavigate();
+  
+    const handleGetStarted = () => {
+      navigate("/login"); 
+    };
+    const handleSignin = () => {
+      navigate("/Signin"); 
+    };
   
 
-  // const toggleDarkMode = () => {
-  //   setDarkMode(!darkMode);
-  // };
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
@@ -45,8 +52,8 @@ export default function Navbar() {
         <span className="option"><Link to="/">Homepage</Link></span>
         <span className="option"><Link to="/forum">Forum</Link></span>
         <span className="option">Posts</span>
-        <button className="button">Sign Up</button>
-        <button className="button">Log in</button>
+        <button className="button" onClick={handleSignin}>Sign Up</button>
+        <button className="button" onClick={handleGetStarted}>Log in</button>
         <span className="navIcons">
           <ChatIcon />
         </span>
@@ -66,8 +73,8 @@ export default function Navbar() {
           <li><ForumIcon/><Link to="/forum" className="option2">Forum</Link></li>
           <li> <PostAddIcon/>Posts</li>
           <li><ChatIcon/>Chat</li>
-          <li> <PersonAddIcon/>Sign Up</li>
-          <li><LoginIcon/>Log in</li>
+          <li> <PersonAddIcon/><Link to="/Signin" className="option2">Sign Up</Link></li>
+          <li><LoginIcon/><Link to="/login" className="option2">Log in</Link></li>
           <li onClick={toggleDarkMode}><DarkModeIcon/>Theme</li>
         </ul>
       </div>
