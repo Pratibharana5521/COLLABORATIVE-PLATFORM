@@ -1,0 +1,210 @@
+/* *{
+    color: black;
+} */
+.navbarcontainer{
+    height: 78px;
+    width: 100%;
+    background-color: whitesmoke;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+}
+.navbarcontainer.dark {
+    background-color: #2c2c2c; 
+    color: white; 
+  }
+  .navbarcontainer.dark .search-bar {
+    background-color:black; 
+    color: white;
+  }
+  
+  .navbarcontainer.dark .searchInput {
+    background-color: black; 
+    color: white;
+  }
+  
+  .navbarcontainer.dark .button {
+    background-color: #666; 
+    color: white;
+  }
+  .navbarcontainer.dark .navIcons svg {
+    fill: white;
+  }
+  .navbarcontainer.dark .name{
+    color: white;
+  }
+  .navbarcontainer.dark .navbarleft{
+    background-color:#2c2c2c ;
+  }
+  .navbarcontainer.dark .navbarcenter{
+    background-color:#2c2c2c ;
+  }
+  .navbarcontainer.dark .navbarright{
+    background-color:#2c2c2c ;
+  }
+  .navbarcontainer.dark .logo svg{
+    fill: white;
+  }
+.logo{
+    margin: 10px;
+    cursor: pointer;
+}
+.name{
+    font-size: 30px;
+    margin: 10px;
+}
+.navbarleft{
+    flex: 2;
+    margin-right: 15px;
+}
+.navbarcenter{
+    flex: 4;
+}
+.navbarright{
+    flex: 6;
+    display: flex;
+    font-size: 20px;
+    
+}
+.search-bar{
+    width: 100%;
+    height: 30px;
+    font-size: 20px;
+    background-color: white;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+}
+.searchInput{
+    height: 23px;
+    width: 70%;
+    font-size: 20px;
+    border-radius: 20px;
+    border: none;
+}
+.navbarcontainer.dark .searchInput::placeholder{
+    color: white;
+  }
+.navbarcontainer.dark .search-bar svg{
+    fill: white;
+  }
+.searchInput:focus{
+    outline: none;
+}
+.button{
+    height: 35px;
+    width: 85px;
+    margin: 20px;
+    border-radius: 15px;
+    border: none;
+    background-color:pink;
+    font-size: 15px;
+    cursor: pointer;
+}
+.navbarcontainer.dark .button{
+    background-color: white;
+    color:black;
+  }
+.option{
+    margin: 25px;
+    cursor: pointer;
+
+}
+.option a{
+  text-decoration: none;
+  color: inherit;
+}
+.option a:active{
+  color: pink;
+}
+.option2{
+  text-decoration: none;
+  color: inherit;
+}
+.navbarcontainer.dark .option{
+    color: white;
+  }
+.navIcons{
+    margin: 25px;
+    cursor: pointer;
+}
+
+
+@media (max-width: 768px){
+  .navbarright {
+      display: none; 
+  }
+  .navbarcenter {
+      flex: 6; 
+  }
+
+  .navbarleft {
+      flex: 4; 
+  }
+
+  .search-bar {
+      width: 100%; 
+  }
+
+  .navbarcontainer {
+      justify-content: space-between; 
+      padding: 0 10px; 
+  }
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px; 
+  width: 250px;
+  height: 100%;
+  background-color: white;
+  color: black;
+  overflow: hidden;
+  transition: left 0.3s ease; 
+  z-index: 1000; 
+}
+.sidebar.dark {
+  background-color: #2c2c2c;  
+  color: white;  
+}
+
+.sidebar.open {
+  left: 0; 
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  display: flex; 
+  align-items: center; 
+  padding: 15px 20px; 
+  cursor: pointer;
+  gap: 10px; 
+}
+
+.sidebar ul li:hover {
+  background-color: pink;
+}
+
+.sidebar.dark .sidebar ul li {
+  background-color: #2c2c2c; 
+  color: white; 
+}
+
+.sidebar.dark .sidebar ul li:hover {
+  background-color: #444; 
+  color: white; 
+}
+
+.sidebar.dark .sidebar ul li svg {
+  fill: white;  
+}
+
+
+
+
