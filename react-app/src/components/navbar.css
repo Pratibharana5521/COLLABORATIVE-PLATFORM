@@ -3,7 +3,7 @@
 } */
 .navbarcontainer{
     height: 78px;
-    width: 100%;
+    width: 90%;
     background-color: whitesmoke;
     display: flex;
     align-items: center;
@@ -101,6 +101,7 @@
     background-color:pink;
     font-size: 15px;
     cursor: pointer;
+    color: black;
 }
 .navbarcontainer.dark .button{
     background-color: white;

@@ -1,0 +1,56 @@
+/* Full Page Chat Container */
+.chat-container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    background: pink;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Chat Header (Optional - Add a title or back button) */
+.chat-header {
+    background: #075e54;
+    color: white;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.chat-box {
+    flex-grow: 1;
+    padding: 15px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 5px;
+}
+
+.message {
+    padding: 10px 15px;
+    border-radius: 15px;
+    max-width: 70%;
+    word-wrap: break-word;
+    font-size: 14px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.sent {
+    background: #dcf8c6;
+    color: pink;
+    align-self: flex-end;
+    border-bottom-right-radius: 5px;
+}
+.chat-container {
+    padding: 10px;
+}
+.chat-container input{
+    width: 80%;
+}
+.chat-container button {
+    width: 80%;
+}

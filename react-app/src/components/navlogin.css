@@ -204,6 +204,27 @@
 .sidebar.dark .sidebar ul li svg {
   fill: white;  
 }
+/* .button-n{
+  display: flex;
+  width: 30px;
+  height: 20px;
+  background-color: bisque;
+} */
+ .name1{
+    height: 35px;
+    width: 95px;
+    margin: 20px;
+    border-radius: 15px;
+    border: none;
+    background-color:pink;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+ }
+ .navbarcontainer.dark .name1{
+  background-color: white;
+  color: black;
+}
 
 
 

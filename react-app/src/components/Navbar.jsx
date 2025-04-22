@@ -51,11 +51,11 @@ export default function Navbar() {
       <div className="navbarright">
         <span className="option"><Link to="/">Homepage</Link></span>
         <span className="option"><Link to="/forum">Forum</Link></span>
-        <span className="option">Posts</span>
+        <span className="option"><Link to="/createPost">Posts</Link></span>
         <button className="button" onClick={handleSignin}>Sign Up</button>
         <button className="button" onClick={handleGetStarted}>Log in</button>
-        <span className="navIcons">
-          <ChatIcon />
+        <span className="navIcons"><Link to="/chat">
+          <ChatIcon /></Link>
         </span>
         <span className="navIcons">
           <NotificationsIcon />
@@ -71,7 +71,7 @@ export default function Navbar() {
         <ul>
           <li><HomeIcon/><Link to="/" className="option2">Home</Link></li>
           <li><ForumIcon/><Link to="/forum" className="option2">Forum</Link></li>
-          <li> <PostAddIcon/>Posts</li>
+          <li> <PostAddIcon/><Link to="/PostPage" className="option2">Posts</Link></li>
           <li><ChatIcon/>Chat</li>
           <li> <PersonAddIcon/><Link to="/Signin" className="option2">Sign Up</Link></li>
           <li><LoginIcon/><Link to="/login" className="option2">Log in</Link></li>

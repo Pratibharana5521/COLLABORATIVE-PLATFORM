@@ -67,7 +67,7 @@ export default function Navlogin() {
         <span className="option"><Link to="/">Homepage</Link></span>
         <span className="option"><Link to="/forum">Forum</Link></span>
         <span className="option">Posts</span>
-        <button className="button" >{loggedInUser}</button>
+        <span className="name1" >{loggedInUser}</span>
         <button className="button" onClick={handleLogout}>Log Out</button>
         
         <span className="navIcons">

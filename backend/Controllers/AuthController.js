@@ -1,4 +1,3 @@
-// onst userData = require('../Models/db')
 const bcrpyt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const userData = require('../Models/db');
@@ -52,7 +51,7 @@ const login = async (req,res )=>{
             return res.status(403)
             .json({message: errorMsg, success:false });  
         }
-        // password check kiye then we have to creeate a JWT token
+        // password check kiye then we have to create a JWT token
         const jwtToken = jwt.sign(
             { email:user.email , _id : user._id},
             // phela parameter hota hai payload , is payload se encrypt hoga

@@ -1,8 +1,10 @@
 footer{
     background-color: pink; 
     color: black; 
-    padding: 10px 20px; 
-    text-align: center; 
+    padding: 10px 0px; 
+    text-align: center;
+    /* margin-top: auto;  */
+    width: 100%;
   }
 footer.dark {
     background-color: white;
@@ -17,7 +19,6 @@ footer.dark {
   }
   
   .footer p {
-    margin: 10px 0;
     font-size: 16px;
   }
   
