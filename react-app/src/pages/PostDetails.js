@@ -47,40 +47,38 @@ export default function PostDetails() {
 
         {localStorage.getItem('token') ? <Navlogin /> : <Navbar />}
         <div >
-          
-          {filteredPosts.length > 0 ? (
-            filteredPosts.map((post) => (
-              <div className="post-wrapper" key={post._id}>
-                <div className="post-details-container">
-                  <h2 className="post-title">{post.title}</h2>
+          {posts.map((post) => (
+            <div className="post-wrapper">
+              <div className="post-details-container">
+                <h2 className="post-title">{post.title}</h2>
 
-                  {post.imageUrl && post.imageUrl.endsWith(".pdf") ? (
-                    <iframe
-                      src={post.imageUrl}
-                      className="post-image"
-                      title="PDF Preview"
-                    ></iframe>
-                  ) : (
-                    <img src={post.imageUrl} alt="Uploaded" className="image" />
-                  )}
+                {post.imageUrl && post.imageUrl.endsWith(".pdf") ? (
+                  <iframe
+                    src={post.imageUrl}
+                    className="post-image"
+                    title="PDF Preview"
+                  ></iframe>
+                ) : (
+                  <img src={post.imageUrl} alt="Uploaded" className="image" />
+                )}
 
-                  <div className="post-meta">
-                    <p className="post-author"><strong>Author:</strong> {post.author}</p>
-                    <p className="post-content"><strong>Content:</strong> {post.content}</p>
-                  </div>
+                <div className="post-meta">
+                  <p className="post-author"><strong>Author:</strong> {post.author}</p>
+                  <p className="post-content"><strong>Content:</strong> {post.content}</p>
+                </div>
 
-                  <div className="post-footer">
-                    {/* <button className="discussion-btn">💬 Give thoughts</button> */}
-                    <div className="timestamp">
-                      <p>{new Date(post.createdAt).toLocaleString()}</p>
-                    </div>
+                <div className="post-footer">
+                  {/* <button className="discussion-btn">💬 Give thoughts</button> */}
+                  <div className="timestamp">
+                    <p>{new Date(post.createdAt).toLocaleString()}</p>
                   </div>
                 </div>
               </div>
-            ))
-          ) : (
-            <p style={{ padding: "2rem", fontStyle: "italic" }}>No posts matched your search.</p>
-          )}
+            </div>
+
+
+          ))}
+         
         </div>
       </div>
 

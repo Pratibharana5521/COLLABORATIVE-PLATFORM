@@ -68,7 +68,7 @@ export default function Navlogin() {
         </span>
         <span className="name">Colab</span>
       </div>
-      <div className="navbarcenter">
+      <div className="navbarcenter" id="hi">
         <div className="search-bar">
           <SearchIcon />
           <input

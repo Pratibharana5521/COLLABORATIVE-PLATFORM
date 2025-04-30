@@ -4,6 +4,9 @@
  .ci{
   color: black;
  }
+ #hi{
+  opacity: 0;
+ }
 .navbarcontainer{
     height: 78px;
     width: 100%;
@@ -168,6 +171,7 @@
   transition: left 0.3s ease; 
   z-index: 1000; 
 }
+
 .sidebar.dark {
   background-color: #2c2c2c;  
   color: white;  
