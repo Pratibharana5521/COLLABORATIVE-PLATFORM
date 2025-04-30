@@ -64,6 +64,7 @@ const login = async (req,res )=>{
         res.status(200)
             .json({
                 message:"Login successfully",
+                id:user._id,
                 success:true,
                 jwtToken,
                 email,

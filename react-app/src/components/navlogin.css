@@ -1,6 +1,9 @@
 /* *{
     color: black;
 } */
+ .ci{
+  color: black;
+ }
 .navbarcontainer{
     height: 78px;
     width: 100%;
@@ -220,6 +223,8 @@
     font-size: 15px;
     cursor: pointer;
     text-align: center;
+   
+    
  }
  .navbarcontainer.dark .name1{
   background-color: white;

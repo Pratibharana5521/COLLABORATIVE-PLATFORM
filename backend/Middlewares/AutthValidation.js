@@ -1,4 +1,5 @@
 const Joi = require('joi');
+const jwt = require('jsonwebtoken');
 
 //  its for check condtion when user give the constraints is in format or not \
 
@@ -29,7 +30,10 @@ const loginValidation = (req ,res , next)=>{
     next();
 }
 
+
+
 module.exports = {
     signupValidation,
-    loginValidation
+    loginValidation,
+
 }

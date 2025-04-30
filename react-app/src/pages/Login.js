@@ -40,9 +40,10 @@ function Login() {
         body: JSON.stringify(loginInfo)
       })
       const result = await response.json();
-      const { success, message, jwtToken, name, error } = result;
+      const { success,id, message, jwtToken, name, error } = result;
       if (success) {
         handleSuccess(message);
+        localStorage.setItem('id',id);
         localStorage.setItem('token', jwtToken);
         localStorage.setItem('loggedInUser', name);
         setTimeout(() => {
@@ -96,7 +97,7 @@ function Login() {
             Login
           </button>
         </form>
-        <p>Don't have an account?<Link to="/Signin" className="link"> Sign Up</Link></p>
+        <p>Don't have an account?<Link to="/SignUp" className="link"> Sign Up</Link></p>
       </div>
       <ToastContainer />
     </div>

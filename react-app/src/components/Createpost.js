@@ -5,6 +5,9 @@ import './createpost.css';
 import Footer from './Footer';
 import axios from "axios";
 import { useDarkMode } from '../context/DarkModeContext';
+import Login from '../pages/Login';
+import Navlogin from './Navlogin';
+import NavC from './NavC';
 
 export default function Createpost() {
     const { darkMode } = useDarkMode();
@@ -66,7 +69,7 @@ export default function Createpost() {
     
     return (
         <div className={`createpost ${darkMode ? 'dark' : ''}`}>
-            <Navbar />
+            {localStorage.getItem('token') ? <NavC /> : <Login />}
             <div className='createpost1'>
                 <div className='post-header'>
                     <h2>Create New Post</h2>
@@ -79,14 +82,7 @@ export default function Createpost() {
                     <input type="file" accept="image/*,application/pdf" onChange={handleFileChange} />
                     <button id='post-btn' onClick={handleSubmit}>Share</button>
                 </div>
-                <div className='details'>
-                    <div className='card-header'>
-                        <div className='card-pic'>
-                            <img src='https://hips.hearstapps.com/hmg-prod/images/alpe-di-siusi-sunrise-with-sassolungo-or-langkofel-royalty-free-image-1623254127.jpg' alt='user-image' style={{ width: "50px", height: "50px", borderRadius: "50%" }} />
-                        </div>
-                        <h5>Krishna</h5>
-                    </div>
-                </div>
+                
             </div>
             <Footer/>
         </div>

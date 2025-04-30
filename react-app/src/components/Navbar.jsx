@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./navbar.css"
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import { useDarkMode } from "../context/DarkModeContext";
 import SearchIcon from '@mui/icons-material/Search';
 import PersonIcon from '@mui/icons-material/Person';
@@ -21,19 +21,19 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navigate = useNavigate();
-  
-    const handleGetStarted = () => {
-      navigate("/login"); 
-    };
-    const handleSignin = () => {
-      navigate("/Signin"); 
-    };
-  
+
+  const handleGetStarted = () => {
+    navigate("/login");
+  };
+  const handleSignin = () => {
+    navigate("/Signin");
+  };
+
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
-  
+
   return (
     <div className={`navbarcontainer ${darkMode ? "dark" : ""}`}>
       <div className="navbarleft">
@@ -42,16 +42,19 @@ export default function Navbar() {
         </span>
         <span className="name">Colab</span>
       </div>
-      <div className="navbarcenter">
+      <div className="navbarcenter" id="sb" >
         <div className="search-bar">
           <SearchIcon />
-          <input placeholder="Search for posts" className="searchInput"></input>
+          <input
+            placeholder="Search for posts"
+            className="searchInput"
+          />
         </div>
       </div>
       <div className="navbarright">
         <span className="option"><Link to="/">Homepage</Link></span>
-        <span className="option"><Link to="/forum">Forum</Link></span>
-        <span className="option"><Link to="/createPost">Posts</Link></span>
+        <span className="option"><Link to="/Login">Create</Link></span>
+        <span className="option"><Link to="/posts">Posts</Link></span>
         <button className="button" onClick={handleSignin}>Sign Up</button>
         <button className="button" onClick={handleGetStarted}>Log in</button>
         <span className="navIcons"><Link to="/chat">
@@ -65,17 +68,17 @@ export default function Navbar() {
         </span>
       </div>
       <div className={`sidebar ${menuOpen ? "open" : ""} ${darkMode ? "dark" : ""}`}>
-      <span className="logo" onClick={toggleMenu}>
+        <span className="logo" onClick={toggleMenu}>
           <MenuIcon />
         </span>
         <ul>
-          <li><HomeIcon/><Link to="/" className="option2">Home</Link></li>
-          <li><ForumIcon/><Link to="/forum" className="option2">Forum</Link></li>
-          <li> <PostAddIcon/><Link to="/PostPage" className="option2">Posts</Link></li>
-          <li><ChatIcon/>Chat</li>
-          <li> <PersonAddIcon/><Link to="/Signin" className="option2">Sign Up</Link></li>
-          <li><LoginIcon/><Link to="/login" className="option2">Log in</Link></li>
-          <li onClick={toggleDarkMode}><DarkModeIcon/>Theme</li>
+          <li><HomeIcon /><Link to="/" className="option2">Home</Link></li>
+          <li><ForumIcon /><Link to="/Login" className="option2">Forum</Link></li>
+          <li> <PostAddIcon /><Link to="/Login" className="option2">Add Post</Link></li>
+          <li><ChatIcon /><Link to="/Login" className="option2">Chat</Link></li>
+          <li> <PersonAddIcon /><Link to="/SignUp" className="option2">Sign Up</Link></li>
+          <li><LoginIcon /><Link to="/Login" className="option2">Log in</Link></li>
+          <li onClick={toggleDarkMode}><DarkModeIcon />Theme</li>
         </ul>
       </div>
 

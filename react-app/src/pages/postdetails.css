@@ -1,82 +1,97 @@
-.post-details-page {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-  
-  .post-details {
-    flex: 1;
-  }
-  
+.post-wrapper {
+  margin-bottom: 40px; /* Space between posts */
+}
+
+.post-details-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; /* ensures children like image take full width */
+}
+
+.post-title {
+  font-size: 2rem;
+  color: #007bff;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.image {
+  width: 100%; 
+   height: auto;
+  margin: 1rem 0; 
+  border-radius: 8px;
+}
+
+/* PDF preview iframe */
+/* iframe.post-image {
+  min-height: 400px;
+  border: none;
+} */
+
+.post-meta {
+  width: 100%;
+}
+
+.post-author,
+.post-content {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.post-footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  border-top: 1px solid #ddd;
+  padding-top: 1rem;
+}
+
+.discussion-btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.timestamp p {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+@media (max-width: 768px) {
   .post-details-container {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 2rem;
-    background-color: #f9f9f9;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    position: relative; 
+    padding: 1rem;
+    margin: 20px;
   }
-  
-  .post-details-container h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: #007bff;
+
+  .post-title {
+    font-size: 1.5rem;
   }
-  
-  .post-details-container p {
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-    color: #333;
+
+  .post-author,
+  .post-content {
+    font-size: 1rem;
   }
-  
-  .post-details-container img {
-    max-width: 100%;
-    height: auto;
-    margin-top: 1.5rem;
-    border-radius: 8px;
+
+  .post-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
   }
-  
-  iframe {
-    margin-top: 1.5rem;
-    border: none;
-    border-radius: 8px;
+
+  .timestamp {
+    align-self: flex-end;
   }
-  
-  /* .loading {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 70vh;
-    font-size: 1.2rem;
-    color: #555;
-  } */
-  
-  @media (max-width: 768px) {
-    .post-details-container {
-      padding: 1rem;
-      margin: 20px;
-    }
-  
-    .post-details-container h2 {
-      font-size: 1.5rem;
-    }
-  
-    .post-details-container p {
-      font-size: 1rem;
-    }
-  }
-  
-  
-  .post-date {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    font-size: 0.9rem;
-    color: #666;
-  }
-  
-  
-  
-  
+}

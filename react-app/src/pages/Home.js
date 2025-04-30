@@ -2,8 +2,10 @@ import React from "react"
 import "./home.css"
 import { useDarkMode } from "../context/DarkModeContext"
 import Navbar from "../components/Navbar"
+import Navlogin from "../components/Navlogin"
 import Footer from "../components/Footer"
 import { useNavigate } from "react-router-dom"; 
+import NavC from "../components/NavC"
 
 
 function Home() {
@@ -16,7 +18,8 @@ function Home() {
 
   return (
     <div className={`home ${darkMode ? 'dark' : ''}`}>
-      <Navbar/>
+      
+      {localStorage.getItem('token') ? <NavC /> : <Navbar />}
       <div className="main-content">
         <h1>Welcome to your collaborative hub!</h1>
         <p>Collaboration that Inspires Change for Innovation and Growth</p>

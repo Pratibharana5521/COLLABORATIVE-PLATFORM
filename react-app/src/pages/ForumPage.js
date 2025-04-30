@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Navbar from "../components/Navbar"
+import Navlogin from "../components/Navlogin"
 import Footer from "../components/Footer"
 import './forumpage.css';
 import { Link } from 'react-router-dom';
@@ -24,7 +25,7 @@ export default function ForumPage() {
   return (
     <div className='forum-page'>
         <div className='forum'>
-          <Navbar />
+          {localStorage.getItem('token') ? <Navlogin /> : <Navbar />}
           <div className="forum-container">
             <h2 className='forum-title'>Forum Overview</h2>
             <div className="forum-posts">

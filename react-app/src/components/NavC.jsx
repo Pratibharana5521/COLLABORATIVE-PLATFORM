@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "./navlogin.css"
+import "./NavC.css"
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; 
 import { useDarkMode } from "../context/DarkModeContext";
 import SearchIcon from '@mui/icons-material/Search';
 import PersonIcon from '@mui/icons-material/Person';
@@ -17,49 +17,35 @@ import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import { handleSuccess } from "../utils";
 import { ToastContainer } from "react-toastify";
 
-export default function Navlogin() {
+export default function NavC() {
   // const [darkMode, setDarkMode] = useState(false);
   const { darkMode, toggleDarkMode } = useDarkMode();
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navigate = useNavigate();
-
-  // const handleGetStarted = () => {
-  //   navigate("/login"); 
-  // };
-  // const handleSignin = () => {
-  //   navigate("/Signin"); 
-  // };
-  const [inpVal, setinpVal] = useState("");
-  const handleClick = (e) => {
-    setinpVal(e.target.value)
-  };
-
-  if (inpVal) {
-    localStorage.setItem('searchQuery', inpVal);
-  }
-  const [loggedInUser, setLoggedInUser] = useState('');
-  const [id, setId] = useState('');
-  useEffect(() => {
-    setLoggedInUser(localStorage.getItem('loggedInUser'))
-    setId(localStorage.getItem('id'))
-  }, [])
-
-  const handleLogout = (e) => {
-    localStorage.removeItem('token')
-    localStorage.removeItem('loggedInUser')
-    localStorage.removeItem('id')
-    setTimeout(() => {
-      navigate('/login');
-    }, 1000)
-    handleSuccess("Log Out Successfully")
-
-  }
+  
+    const [loggedInUser , setLoggedInUser] = useState('');
+    const [ id , setId] = useState('');
+    useEffect(()=>{
+      setLoggedInUser(localStorage.getItem('loggedInUser'))
+      setId(localStorage.getItem('id'))
+    },[])
+    
+    const handleLogout =(e)=>{
+      localStorage.removeItem('token')
+      localStorage.removeItem('loggedInUser')
+      localStorage.removeItem('id')
+      setTimeout(()=>{
+        navigate('/login');
+      },1000)
+      handleSuccess("Log Out Successfully")
+      
+    }
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
-
+  
   return (
     <div className={`navbarcontainer ${darkMode ? "dark" : ""}`}>
       <div className="navbarleft">
@@ -68,15 +54,10 @@ export default function Navlogin() {
         </span>
         <span className="name">Colab</span>
       </div>
-      <div className="navbarcenter">
+      <div className="navbarcenter" id="ss">
         <div className="search-bar">
           <SearchIcon />
-          <input
-            placeholder="Search for posts"
-            className="searchInput"
-            value={inpVal}
-            onChange={handleClick}
-          />
+          <input placeholder="Search for posts" className="searchInput"></input>
         </div>
       </div>
       <div className="navbarright">
@@ -86,9 +67,9 @@ export default function Navlogin() {
         <span className="option"><Link to="/posts">Posts</Link></span>
         <button className="button" >{loggedInUser}</button>
         <button className="button" onClick={handleLogout}>Log Out</button>
-
+        
         <span className="navIcons">
-          <Link to="/discussion/page"><ChatIcon className="ci" /></Link>
+        <Link to="/discussion/page"><ChatIcon className="ci" /></Link>
         </span>
         <span className="navIcons">
           <NotificationsIcon />
@@ -98,17 +79,17 @@ export default function Navlogin() {
         </span>
       </div>
       <div className={`sidebar ${menuOpen ? "open" : ""} ${darkMode ? "dark" : ""}`}>
-        <span className="logo" onClick={toggleMenu}>
+      <span className="logo" onClick={toggleMenu}>
           <MenuIcon />
         </span>
         <ul>
-          <li><HomeIcon /><Link to="/" className="option2">Home</Link></li>
+          <li><HomeIcon/><Link to="/" className="option2">Home</Link></li>
           {/* <li><ForumIcon/><Link to="/forum" className="option2">Forum</Link></li> */}
-          <li> <PostAddIcon /><Link to="/upload/post" className="option2">Add Post</Link></li>
-          <li><ChatIcon /><Link to="/discussion/page" className="option2" >Chat</Link></li>
-          <li> <PersonAddIcon /><Link to="/Signin" className="option2">Sign Up</Link></li>
-          <li><LoginIcon /><Link to="/login" className="option2">Log in</Link></li>
-          <li onClick={toggleDarkMode}><DarkModeIcon />Theme</li>
+          <li> <PostAddIcon/><Link to="/upload/post" className="option2">Add Post</Link></li>
+          <li><ChatIcon/><Link to ="/discussion/page" className="option2" >Chat</Link></li>
+          <li> <PersonAddIcon/><Link to="/Signin" className="option2">Sign Up</Link></li>
+          <li><LoginIcon/><Link to="/login" className="option2">Log in</Link></li>
+          <li onClick={toggleDarkMode}><DarkModeIcon/>Theme</li>
         </ul>
       </div>
       <ToastContainer />
