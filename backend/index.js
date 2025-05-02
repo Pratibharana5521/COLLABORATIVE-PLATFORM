@@ -14,10 +14,40 @@ const { signup, login } = require('./Controllers/AuthController');
 const authenticateToken = require('./Middlewares/AutthValidation');
 
 // if we want to automatically update server then use nodemon and write the line on the package.json in scripts "start" :"nodemon index.js"
-const db = require('./Models/db');
+const userData = require('./Models/db');
 const Post = require("./Models/Post");
+app.use(cors({
+  origin: 'http://localhost:3000',
+  credentials: true // if you're sending cookies or auth headers
+}));
 
-// app.get('/myposts/:id', login, async (req, res) => {
+
+
+mongoose.connect('mongodb://127.0.0.1:27017/Colab-CP')
+  // mongoose ek promise hai iisliye .then lagaye hai
+  // uper test databse ka name hai 
+  .then(() => console.log('DB connected'))
+  .catch(() => { console.log('DB not connected !') })
+
+
+app.get('/myPosts/:id', async (req, res) => {
+  try {
+    // Fetch posts created by the logged-in user
+    const id = req.params.id;
+    // const id = localStorage.getItem(id) ;
+    console.log(id);
+    const post_s= await Post.find({owner:id}).populate('owner');
+    // populate is like the foriegn key here simple in the post table we add id of the owner of the post ..
+    // Now find the those post whose owner id is logged user ....and get details of those user by using the populate function 
+    res.json(post_s);
+  } catch (err) {
+    res.status(500).json({ message: 'Error fetching posts' });
+  }
+});
+
+
+// app.get('/myposts', async (req, res) => {
+//   const id = localStorage.getItem(id) ;
 //   const user = req.params.id;
 //   console.log(user)
 //   try {
@@ -29,25 +59,6 @@ const Post = require("./Models/Post");
 // });
 
 
-
-mongoose.connect('mongodb://127.0.0.1:27017/US')
-  // mongoose ek promise hai iisliye .then lagaye hai
-  // uper test databse ka name hai 
-  .then(() => console.log('DB connected'))
-  .catch(() => { console.log('DB not connected !') })
-
-
-app.get('/myPosts/:id', async (req, res) => {
-  try {
-    // Fetch posts created by the logged-in user
-    const { user } = req.params;
-    console.log(user);
-    const posts = await Post.find(user).populate('userID');
-    res.json(posts);
-  } catch (err) {
-    res.status(500).json({ message: 'Error fetching posts' });
-  }
-});
 app.get('/test', (req, res) => {
   res.send("OK !");
 })
@@ -92,15 +103,16 @@ app.post("/api/posts", async (req, res) => {
   try {
     console.log("🔹 Incoming Data:", req.body); // Log received data
 
-    const { title, author, content, imageUrl } = req.body;
+    const { id,title, author, content, imageUrl } = req.body;
 
     if (!title || !author || !content) {
       console.log("Missing required fields");
       return res.status(400).json({ message: "All fields are required" });
     }
 
-    const newPost = new Post({ title, author, content, imageUrl });
+    const newPost = new Post({ title, author, content, imageUrl , owner:id });
     await newPost.save();
+    
 
     console.log("Post saved successfully:", newPost);
     res.status(201).json({ message: "Post created successfully", post: newPost });

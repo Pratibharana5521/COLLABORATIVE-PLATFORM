@@ -1,3 +1,4 @@
+const { required } = require("joi");
 const mongoose = require("mongoose");
 
 
@@ -6,14 +7,15 @@ const postSchema = new mongoose.Schema({
   author: { type: String, required: true },
   content: { type: String },
   imageUrl: { type: String },
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'user',
+    required:true
+  },
   createdAt: {
     type: Date,
     default: Date.now
-  },
-  userID: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'userData'
-  }]
+  }
 
 }, { timestamps: true });
 

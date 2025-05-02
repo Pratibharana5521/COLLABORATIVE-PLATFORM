@@ -21,6 +21,7 @@ export default function NavC() {
   // const [darkMode, setDarkMode] = useState(false);
   const { darkMode, toggleDarkMode } = useDarkMode();
   const [menuOpen, setMenuOpen] = useState(false);
+  
 
   const navigate = useNavigate();
   
@@ -36,7 +37,7 @@ export default function NavC() {
       localStorage.removeItem('loggedInUser')
       localStorage.removeItem('id')
       setTimeout(()=>{
-        navigate('/login');
+        navigate('/');
       },1000)
       handleSuccess("Log Out Successfully")
       
@@ -62,7 +63,7 @@ export default function NavC() {
       </div>
       <div className="navbarright">
         <span className="option"><Link to="/">Homepage</Link></span>
-        {/* <span className="option"><Link to={`/myPosts/${id}`}>MyPosts</Link></span> */}
+        <span className="option"><Link to={`/myPosts/${id}`}>MyPosts</Link></span>
         <span className="option"><Link to="/upload/post">Create</Link></span>
         <span className="option"><Link to="/posts">Posts</Link></span>
         <button className="button" >{loggedInUser}</button>
@@ -84,7 +85,7 @@ export default function NavC() {
         </span>
         <ul>
           <li><HomeIcon/><Link to="/" className="option2">Home</Link></li>
-          {/* <li><ForumIcon/><Link to="/forum" className="option2">Forum</Link></li> */}
+          <li><ForumIcon/><Link to="/myPosts" className="option2">My Posts</Link></li>
           <li> <PostAddIcon/><Link to="/upload/post" className="option2">Add Post</Link></li>
           <li><ChatIcon/><Link to ="/discussion/page" className="option2" >Chat</Link></li>
           <li> <PersonAddIcon/><Link to="/Signin" className="option2">Sign Up</Link></li>

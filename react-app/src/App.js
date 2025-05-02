@@ -39,8 +39,8 @@ function App() {
           <Route path="/createPost/Login" element={<Login/>} /> 
           <Route path="/discussion/page" element={<Chat/>} /> 
           <Route path="/discussion/page/login" element={<Login/>} /> 
-          {/* <Route path="/post/:id" element={<PostDetails />} />
-          <Route path="/myPosts/:id" element={<MyPosts />} /> */}
+          <Route path="/post/:id" element={<PostDetails />} />
+          <Route path="/myPosts/:id" element={<MyPosts />} />
 
         </Routes>
     </div>

@@ -11,6 +11,7 @@ import NavC from './NavC';
 
 export default function Createpost() {
     const { darkMode } = useDarkMode();
+    const ide = localStorage.getItem('id') ;
     const loadfile = (event) => {
         var output = document.getElementById('output');
         output.src = URL.createObjectURL(event.target.files[0]);
@@ -19,6 +20,7 @@ export default function Createpost() {
         }
     }
     const [postData, setPostData] = useState({
+        id:ide,
         title: "",
         author: "",
         content: "",

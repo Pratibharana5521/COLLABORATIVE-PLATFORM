@@ -50,7 +50,7 @@ export default function Navlogin() {
     localStorage.removeItem('loggedInUser')
     localStorage.removeItem('id')
     setTimeout(() => {
-      navigate('/login');
+      navigate('/');
     }, 1000)
     handleSuccess("Log Out Successfully")
 
@@ -81,7 +81,7 @@ export default function Navlogin() {
       </div>
       <div className="navbarright">
         <span className="option"><Link to="/">Homepage</Link></span>
-        {/* <span className="option"><Link to={`/myPosts/${id}`}>MyPosts</Link></span> */}
+        <span className="option"><Link to={`/myPosts/${id}`}>MyPosts</Link></span>
         <span className="option"><Link to="/upload/post">Create</Link></span>
         <span className="option"><Link to="/posts">Posts</Link></span>
         <button className="button" >{loggedInUser}</button>

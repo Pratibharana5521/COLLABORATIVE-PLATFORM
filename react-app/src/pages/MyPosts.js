@@ -11,11 +11,14 @@ export default function MyPosts() {
   // console.log(user._id); // user ID
   // const id = localStorage.getItem(id) ;// 🔹 gets the post ID from URL
   const [posts, setPosts] = useState(null);
+  const id = localStorage.getItem('id'); // assuming user ID is stored here
+  console.log(id+"mypost")
+
 
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const res = await axios.get(`http://localhost:5050/api/posts`);
+        const res = await axios.get(`http://localhost:5050/myPosts/${id}`);
         setPosts(res.data);
       } catch (error) {
         console.error('Error fetching post:', error);
@@ -23,6 +26,7 @@ export default function MyPosts() {
     };
     fetchPost();
   }, []);
+  console.log(posts)
 
   if (!posts) return (
     <div>
